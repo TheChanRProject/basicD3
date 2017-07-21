@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+
+  <script type="text/javascript">
+    var width = 640
+    var height = 480
+
+``
+    var nodes = [
+      {name: 'Rishov'},
+      {name: 'Dominic'},
+      {name: 'Mei'}
+    ],
+
+    var svg = d3.select('body').append('svg')
+    .attr('width', width)
+    .attr('height', height);
+
+    var node = svg.selectAll('.node')
+    .data(nodes)
+    .enter().append('circle')
+    .attr('class', 'node')
+    .attr('cx', function(d,i) {return (i+1)*(width/4); })
+    .attr('cy', function(d,i) {return height/2; })
+    .attr('r', width * 0.05)
+
+    // Force
+
+    var force = d3.layout.force()
+
+      .size([width, height])
+      .nodes(nodes)
+      .start();
+
+
+
+  </script>
+
+
+
+
+
+
+</body>
